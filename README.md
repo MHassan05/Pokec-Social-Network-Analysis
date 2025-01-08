@@ -65,9 +65,9 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
 ### Contributors
 For any questions or suggestions, feel free to contact us:
 
-Creator 1: [Muhammad Hassan](MHassan05)
-Creator 2: [Muhammad Hamza](Hamza-s2004)
-- [Your Name](https://github.com/yourusername)
+Creator 1: [Muhammad Hassan](https://github.com/MHassan05)
+Creator 2: [Muhammad Hamza](https://github.com/Hamza-s2004)
+-
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
