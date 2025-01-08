@@ -58,7 +58,7 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
 
 ### Dependencies
 - Just dowload the data from provided Link.
-*Tips:*
+**Tips:**
 - As Data is too large to handle you can read the data for specified user.
 - Also Download the readme file from provided link to know more about dataset. 
 
