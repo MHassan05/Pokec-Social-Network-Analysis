@@ -59,13 +59,13 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
 ### Dependencies
 - Just dowload the data from provided Link.
 - *Tips:*
--  As Data is too large to handle you can read the data for specified user.
-- Also Download the readme file from provided link to know more about dataset. 
+- --As Data is too large to handle you can read the data for specified user.
+- --Also Download the readme file from provided link to know more about dataset. 
 
 ### Contributors
 For any questions or suggestions, feel free to contact us:
-- [Muhammad Hassan](https://github.com/MHassan05)
-- [Hamza Shabbir](https://github.com/Hamza-s2004)
+- [Muhammad Hassan](https://github.com/MHassan05)   (mh873030@gmail.com)
+- [Hamza Shabbir](https://github.com/Hamza-s2004)   (toAdd)
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for details.
