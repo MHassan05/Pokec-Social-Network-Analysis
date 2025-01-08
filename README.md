@@ -40,7 +40,7 @@ Pokec is a popular Slovak social network that connects over 1.6 million users. T
 ### Handling Large Dataset Files
 The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) are too large to be uploaded to GitHub. Follow these steps to work with the dataset:
 1. Download the dataset from [Pokec Social Network Dataset provided by *Jure Leskovec of Stanford University*](https://snap.stanford.edu/data/soc-Pokec.html).
-2. Place the files in the `data/` directory.
+2. Place the files in your corresponding directory.
 3. Update the file paths in the source code if needed.
 
 ### How to Run
@@ -49,19 +49,23 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
    git clone https://github.com/yourusername/Pokec-Discrete-Structures-Analysis.git
    cd Pokec-Discrete-Structures-Analysis
    ```
-2. Download and place the dataset files in the `data/` directory.
-3. Compile and run the project:
+2. Compile and run the project:
    ```bash
    g++ -o main src/main.cpp
    ./main
    ```
-4. Follow the on-screen menu to explore different analyses.
+3. Follow the on-screen menu to explore different analyses.
 
 ### Dependencies
-- C++17 or later
-- Standard Library (STL)
+- Just dowload the data from provided Link
+- *Tips:* - As Data is too large to handle you can read the data for specified user
+          - Also Download the readme file from provided link to know more about dataset 
 
 ### Contributors
+For any questions or suggestions, feel free to contact us:
+
+Creator 1: [Muhammad Hassan] ([MHassan05])
+Creator 2: [Your Partner's Name] ([Hamza-s2004])
 - [Your Name](https://github.com/yourusername)
 
 ### License
