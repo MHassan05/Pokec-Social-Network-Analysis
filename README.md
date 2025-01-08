@@ -56,11 +56,10 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
    ```
 3. Follow the on-screen menu to explore different analyses.
 
-### Dependencies
-- Just dowload the data from provided Link.
-**Tips:**
-- As Data is too large to handle you can read the data for specified user.
-- Also Download the readme file from provided link to know more about dataset. 
+  
+### Tips for Handling Large Data
+- Since the dataset is large, it's not efficient to load the entire dataset at once.
+- Focus on extracting the data for the specified user to make the process manageable.
 
 ### Contributors
 For any questions or suggestions, feel free to contact us:
