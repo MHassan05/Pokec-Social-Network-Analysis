@@ -1,5 +1,7 @@
-## Pokec Discrete Structures Analysis
+## Pokec Social Network Analysis : Discrete Structure Project
 
+- This project was developed as part of the Discrete Structures course to analyze the Pokec social network dataset using C++.
+  
 This repository contains a C++ project that performs various discrete mathematical analyses on the Pokec social network dataset. The project implements concepts such as propositions, quantifiers, sets, relations, functions, graph theory, and more.
 
 ### Overview
@@ -37,7 +39,7 @@ Pokec is a popular Slovak social network that connects over 1.6 million users. T
 
 ### Handling Large Dataset Files
 The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) are too large to be uploaded to GitHub. Follow these steps to work with the dataset:
-1. Download the dataset from [Pokec Social Network Dataset](http://pokec.azet.sk/).
+1. Download the dataset from [Pokec Social Network Dataset provided by *Jure Leskovec of Stanford University*](https://snap.stanford.edu/data/soc-Pokec.html).
 2. Place the files in the `data/` directory.
 3. Update the file paths in the source code if needed.
 
