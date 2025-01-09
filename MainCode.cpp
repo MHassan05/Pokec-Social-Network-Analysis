@@ -15,6 +15,7 @@ using namespace std;
 
     You can download the files from the link below (use ctrl + click to open):
     https://snap.stanford.edu/data/soc-Pokec.html
+    
 */
 const string profilesPath = "soc-pokec-profiles.txt";
 const string relationshipsPath = "soc-pokec-relationships.txt";
