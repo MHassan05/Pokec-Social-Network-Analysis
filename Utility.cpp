@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// an m-array tree that will help in building tree with different number of childs
 class Tree
 {
     class Node
