@@ -31,12 +31,6 @@ Pokec is a popular Slovak social network that connects over 1.6 million users. T
 10. **Graphs**
     - Create bipartite graphs and minimum spanning trees.
 
-### File Structure
-- **src/**: Contains the source code.
-- **data/**: Placeholder for the large dataset files (see below).
-- **README.md**: Project documentation.
-- **output/**: Directory for saving screenshots or logs of results.
-
 ### Handling Large Dataset Files
 The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) are too large to be uploaded to GitHub. Follow these steps to work with the dataset:
 1. Download the dataset from [Pokec Social Network Dataset provided by *Jure Leskovec of Stanford University*](https://snap.stanford.edu/data/soc-Pokec.html).
