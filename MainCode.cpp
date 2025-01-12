@@ -9,13 +9,13 @@ using namespace std;
 
 // path to the files 
 /*
-    You can change the path for the files based on you directory location.
-    As Files are too large to read at a same time, so you can read them in chunks. 
-    Change the name of the files if you have different names for the files.
+	You can change the path for the files based on you directory location.
+	As Files are too large to read at a same time, so you can read them in chunks.
+	Change the name of the files if you have different names for the files.
 
-    You can download the files from the link below (use ctrl + click to open):
-    https://snap.stanford.edu/data/soc-Pokec.html
-    
+	You can download the files from the link below (use ctrl + click to open):
+	https://snap.stanford.edu/data/soc-Pokec.html
+
 */
 const string profilesPath = "soc-pokec-profiles.txt";
 const string relationshipsPath = "soc-pokec-relationships.txt";
@@ -35,7 +35,7 @@ class UsersData
 	vector<int> friends;
 
 	// function to pare the string
-	string parseString(string str, int &start)
+	string parseString(string str, int& start)
 	{
 		if (start >= str.size())
 			return "";
@@ -66,18 +66,18 @@ public:
 	}
 
 	// copy constructor
-	UsersData(const UsersData &other)
+	UsersData(const UsersData& other)
 		: user_id(other.user_id), is_public(other.is_public),
-		  completion_percentage(other.completion_percentage),
-		  gender(other.gender), region(other.region),
-		  last_login(other.last_login), registration(other.registration),
-		  age(other.age), friends(other.friends)
+		completion_percentage(other.completion_percentage),
+		gender(other.gender), region(other.region),
+		last_login(other.last_login), registration(other.registration),
+		age(other.age), friends(other.friends)
 	{
 	}
 
 	// constructor with parameters
 	UsersData(int user_id, bool is_public, int completion_percentage, string gender,
-			  string region, tm last_login, tm registration, int age, int numFriends, vector<int> friends)
+		string region, tm last_login, tm registration, int age, int numFriends, vector<int> friends)
 	{
 		this->user_id = user_id;
 		this->is_public = is_public;
@@ -103,8 +103,8 @@ public:
 		this->region = parseString(line, start);
 		subLine = parseString(line, start);
 		if (sscanf_s(subLine.c_str(), "%4d-%2d-%2d %2d:%2d:%2d",
-					 &this->last_login.tm_year, &this->last_login.tm_mon, &this->last_login.tm_mday,
-					 &this->last_login.tm_hour, &this->last_login.tm_min, &this->last_login.tm_sec) == 6)
+			&this->last_login.tm_year, &this->last_login.tm_mon, &this->last_login.tm_mday,
+			&this->last_login.tm_hour, &this->last_login.tm_min, &this->last_login.tm_sec) == 6)
 		{
 			this->last_login.tm_year -= 1900;
 			this->last_login.tm_mon -= 1;
@@ -117,8 +117,8 @@ public:
 		}
 		subLine = parseString(line, start);
 		if (sscanf_s(subLine.c_str(), "%4d-%2d-%2d %2d:%2d:%2d",
-					 &this->registration.tm_year, &this->registration.tm_mon, &this->registration.tm_mday,
-					 &this->registration.tm_hour, &this->registration.tm_min, &this->registration.tm_sec) == 6)
+			&this->registration.tm_year, &this->registration.tm_mon, &this->registration.tm_mday,
+			&this->registration.tm_hour, &this->registration.tm_min, &this->registration.tm_sec) == 6)
 		{
 			this->registration.tm_year -= 1900;
 			this->registration.tm_mon -= 1;
@@ -135,7 +135,7 @@ public:
 	}
 
 	// function to read data from file
-	void readFromFile(ifstream &FileToRead)
+	void readFromFile(ifstream& FileToRead)
 	{
 		int num;
 		string timestamp;
@@ -148,8 +148,8 @@ public:
 		getline(FileToRead, this->region, '\t');
 		getline(FileToRead, timestamp, '\t');
 		if (sscanf_s(timestamp.c_str(), "%4d-%2d-%2d %2d:%2d:%2d",
-					 &this->last_login.tm_year, &this->last_login.tm_mon, &this->last_login.tm_mday,
-					 &this->last_login.tm_hour, &this->last_login.tm_min, &this->last_login.tm_sec) == 6)
+			&this->last_login.tm_year, &this->last_login.tm_mon, &this->last_login.tm_mday,
+			&this->last_login.tm_hour, &this->last_login.tm_min, &this->last_login.tm_sec) == 6)
 		{
 			this->last_login.tm_year -= 1900;
 			this->last_login.tm_mon -= 1;
@@ -163,8 +163,8 @@ public:
 
 		getline(FileToRead, timestamp, '\t');
 		if (sscanf_s(timestamp.c_str(), "%4d-%2d-%2d %2d:%2d:%2d",
-					 &this->registration.tm_year, &this->registration.tm_mon, &this->registration.tm_mday,
-					 &this->registration.tm_hour, &this->registration.tm_min, &this->registration.tm_sec) == 6)
+			&this->registration.tm_year, &this->registration.tm_mon, &this->registration.tm_mday,
+			&this->registration.tm_hour, &this->registration.tm_min, &this->registration.tm_sec) == 6)
 		{
 			this->registration.tm_year -= 1900;
 			this->registration.tm_mon -= 1;
@@ -192,10 +192,10 @@ public:
 		cout << "Region: " << this->region << endl;
 
 		cout << "Last Login: " << this->last_login.tm_hour << ":" << this->last_login.tm_min << ":" << this->last_login.tm_sec << " on "
-			 << this->last_login.tm_mday << "-" << this->last_login.tm_mon + 1 << "-" << this->last_login.tm_year + 1900 << endl;
+			<< this->last_login.tm_mday << "-" << this->last_login.tm_mon + 1 << "-" << this->last_login.tm_year + 1900 << endl;
 
 		cout << "Registration: " << this->registration.tm_hour << ":" << this->registration.tm_min << ":" << this->registration.tm_sec << " on "
-			 << this->registration.tm_mday << "-" << this->registration.tm_mon + 1 << "-" << this->registration.tm_year + 1900 << endl;
+			<< this->registration.tm_mday << "-" << this->registration.tm_mon + 1 << "-" << this->registration.tm_year + 1900 << endl;
 
 		cout << "Age: " << this->age << endl;
 		cout << "Total Friends: " << this->friends.size() << endl;
@@ -273,7 +273,7 @@ public:
 	}
 
 	// copy constructor to copy the data
-	UsersProfiles(const UsersProfiles &other)
+	UsersProfiles(const UsersProfiles& other)
 	{
 		this->users_profiles = other.users_profiles;
 	}
@@ -288,6 +288,151 @@ public:
 	size_t getNumProfiles()
 	{
 		return this->users_profiles.size();
+	}
+
+	// function to check if proposition holds or not
+	void proposition()
+	{
+		cout << "---------------------------------- Proposition ----------------------------------" << endl;
+		int index1, index2;
+		cout << "Enter pokec user 1: ";
+		cin >> index1;
+		cout << "Enter pokec user 2: ";
+		cin >> index2;
+		propositionHolder(users_profiles[index1 - 1], users_profiles[index2 - 1]);
+		cout << endl;
+	}
+
+	// function to check quantifiers conditions
+	void Quantifies()
+	{
+		cout << "---------------------------------- Quantifiers ----------------------------------" << endl;
+		string region;
+		int age, comp_percentage;
+		cout << "Enter Region, Age and Completion Percentage for Condition 1 " << endl;
+		cout << "Enter region: ";
+		getline(cin, region);
+		cout << "Enter age: ";
+		cin >> age;
+		cout << "Enter completion percentage: ";
+		cin >> comp_percentage;
+		cin.ignore();
+
+		// built-in function to convert string to lowercase
+		transform(region.begin(), region.end(), region.begin(), ::tolower);
+
+		if (ExistentialQuantifier(region, age, comp_percentage))
+		{
+			cout << "There exists a user in " + region + " who is above " << age
+				<< "and has a completion percentage above " << 70 << " % ." << endl;
+		}
+		else
+			cout << "No user found" << endl;
+
+		cout << "Enter Region, Age and Completion Percentage for Condition 2 " << endl;
+		cout << "Enter region: ";
+		getline(cin, region);
+		cout << "Enter age: ";
+		cin >> age;
+		cout << "Enter completion percentage: ";
+		cin >> comp_percentage;
+
+		if (UniversalQuantifer(region, age, comp_percentage))
+		{
+			cout << "Every user in " + region << " above " << age << " has completed "
+				<< comp_percentage << "% of their profiles." << endl;
+		}
+		else
+			cout << "There is atleast one use in " + region << " above " << age << " who has not completed "
+			<< comp_percentage << "% of his/her profile." << endl;
+		cout << endl
+			<< endl;
+	}
+
+	// function to perform set operations
+	void Sets()
+	{
+		cout << "---------------------------------- Sets ----------------------------------" << endl;
+		vector<int> setA;
+		vector<int> setB;
+		vector<int> unionAB;
+		vector<int> intersectionAB;
+		vector<int> complementA;
+		string region;
+		int isPublic;
+
+		cout << "For set A: Enter 1 for public profiles and 0 for private profiles: ";
+		cin >> isPublic;
+		cin.ignore();
+
+		if (isPublic)
+		{
+			for (int i = 0; i < users_profiles.size(); i++)
+			{
+				if (users_profiles[i].getIsPublic())
+				{
+					setA.push_back(users_profiles[i].getUserId());
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < users_profiles.size(); i++)
+			{
+				if (!users_profiles[i].getIsPublic())
+				{
+					setA.push_back(users_profiles[i].getUserId());
+				}
+			}
+		}
+
+		cout << "For set B: Enter the region to check for users: ";
+		getline(cin, region);
+
+		// built-in function to convert string to lowercase
+		transform(region.begin(), region.end(), region.begin(), ::tolower);
+
+		for (int i = 0; i < users_profiles.size(); i++)
+		{
+			if (isRegionInString(users_profiles[i].getRegion(), region))
+			{
+				setB.push_back(users_profiles[i].getUserId());
+			}
+		}
+
+		cout << "Set A: ";
+		for (int i = 0; i < setA.size(); i++)
+		{
+			cout << setA[i] << " ";
+		}
+		cout << "\nSet B: ";
+		for (int i = 0; i < setB.size(); i++)
+		{
+			cout << setB[i] << " ";
+		}
+		cout << endl;
+		Set_Union(setA, setB, unionAB);
+		cout << "Union of AB: ";
+		for (int i = 0; i < unionAB.size(); i++)
+		{
+			cout << unionAB[i] << " ";
+		}
+		cout << endl;
+		Set_Intersection(setA, setB, intersectionAB);
+		cout << "Intersection of AB: ";
+		for (int i = 0; i < intersectionAB.size(); i++)
+		{
+			cout << intersectionAB[i] << " ";
+		}
+		cout << endl;
+		cout << "Complement of A: ";
+		Set_complement(setA, complementA);
+		for (int i = 0; i < complementA.size(); i++)
+		{
+			cout << complementA[i] << " ";
+		}
+		cout << endl
+			<< endl;
 	}
 
 	// function to show the ven diagram of the users
@@ -313,7 +458,7 @@ public:
 		// built-in function to convert string to lowercase
 		transform(region.begin(), region.end(), region.begin(), ::tolower);
 
-		for (auto &user : users_profiles)
+		for (auto& user : users_profiles)
 		{
 			if (isPublic)
 			{
@@ -342,19 +487,19 @@ public:
 		}
 
 		cout << "Set A: ";
-		for (auto &user : setA)
+		for (auto& user : setA)
 		{
 			cout << user << " ";
 		}
 		cout << endl
-			 << "Set B: ";
-		for (auto &user : setB)
+			<< "Set B: ";
+		for (auto& user : setB)
 		{
 			cout << user << " ";
 		}
 		cout << endl
-			 << "Set C: ";
-		for (auto &user : setC)
+			<< "Set C: ";
+		for (auto& user : setC)
 		{
 			cout << user << " ";
 		}
@@ -372,7 +517,7 @@ public:
 			bool isInA = false, isInB = false, isInC = false;
 			cout << "\n\nIntersection of A, B, C: ";
 
-			for (auto &userID : intersectionABC)
+			for (auto& userID : intersectionABC)
 			{
 				cout << userID << " ";
 				if (isInArray(userID, setA))
@@ -401,7 +546,7 @@ public:
 			}
 		}
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// function to show the function properties
@@ -429,7 +574,7 @@ public:
 			cout << mapping[i].first << " ";
 		}
 		cout << endl
-			 << "Range: ";
+			<< "Range: ";
 		for (int i = 0; i < mapping.size(); i++)
 		{
 			cout << mapping[i].second << " ";
@@ -446,7 +591,7 @@ public:
 		else
 			cout << "Function is not onto" << endl;
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// function to show Relation property of the users
@@ -480,7 +625,7 @@ public:
 		else
 			cout << "User " << user1 << ", User " << user2 << " and User " << user3 << "'s Relation is not transitive" << endl;
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// function to perform combination and permutation
@@ -500,7 +645,7 @@ public:
 		transform(region.begin(), region.end(), region.begin(), ::tolower);
 
 		int countUsers = 0;
-		for (auto &users : users_profiles)
+		for (auto& users : users_profiles)
 		{
 			if (users.getAge() > age && isRegionInString(users.getRegion(), region))
 			{
@@ -524,7 +669,7 @@ public:
 		cin >> comp_percentage;
 
 		int countCompletion = 0;
-		for (auto &users : users_profiles)
+		for (auto& users : users_profiles)
 		{
 			if (users.getCompletionPercentage() > comp_percentage)
 			{
@@ -543,7 +688,7 @@ public:
 			cout << "Not enough users to form a permutation of size " << r << "." << endl;
 		}
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// function to perform counting
@@ -556,7 +701,7 @@ public:
 		cin >> comp_percentage;
 
 		int countAbove = 0;
-		for (auto &users : users_profiles)
+		for (auto& users : users_profiles)
 		{
 			if (users.getCompletionPercentage() > comp_percentage)
 			{
@@ -568,10 +713,10 @@ public:
 		// Number of users in each region
 		vector<pair<string, int>> regionCount;
 
-		for (auto &users : users_profiles)
+		for (auto& users : users_profiles)
 		{
 			bool found = false;
-			for (auto &region : regionCount)
+			for (auto& region : regionCount)
 			{
 				if (region.first == users.getRegion())
 				{
@@ -582,19 +727,19 @@ public:
 			}
 			if (!found)
 			{
-				regionCount.push_back({users.getRegion(), 1});
+				regionCount.push_back({ users.getRegion(), 1 });
 			}
 		}
 
 		cout << "Number of users in each region: " << endl;
-		for (auto &region : regionCount)
+		for (auto& region : regionCount)
 		{
 			cout << region.first << ": " << region.second << endl;
 		}
 
 		// Generate a report on Count of public profiles
 		int countPublic = 0;
-		for (auto &user : users_profiles)
+		for (auto& user : users_profiles)
 		{
 			if (user.getIsPublic())
 			{
@@ -603,7 +748,7 @@ public:
 		}
 		cout << "Total number of public profiles: " << countPublic << endl;
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// representing the relationships using tree structure
@@ -619,7 +764,7 @@ public:
 		int val = users_profiles[user1 - 1].getUserId();
 		tree.insert(val);
 
-		for (auto &friendId : users_profiles[user1 - 1].friends)
+		for (auto& friendId : users_profiles[user1 - 1].friends)
 		{
 			if (friendId > users_profiles.size())
 			{
@@ -633,7 +778,7 @@ public:
 		// displaying the friends tree as inorder, postorder, and preorder traversal
 		tree.Display();
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// Graphs representing the relationships
@@ -671,7 +816,7 @@ public:
 			cout << "Graph is not Bipartite" << endl;
 		}
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// Graphs representation as MST
@@ -701,7 +846,7 @@ public:
 		graph.kruskalMST();
 
 		cout << endl
-			 << endl;
+			<< endl;
 	}
 
 	// proving induction
@@ -729,25 +874,184 @@ public:
 	~UsersProfiles() { this->users_profiles.clear(); }
 
 
-			/*      All Helpers Functions that are used above */
+	/*      All Helpers Functions that are used above */
 private:
+	// function to check if the proposition holds
 
-	void Set_Intersection(const vector<int>, const vector<int>, const vector<int>&) {}
+	// function to check for existential quantifiers
+	bool ExistentialQuantifier(const string region, int age, int comp_percentage)
+	{
+		for (int i = 0; i < users_profiles.size(); i++)
+		{
+			if (isRegionInString(users_profiles[i].getRegion(), region) &&
+				users_profiles[i].getAge() > age &&
+				users_profiles[i].getCompletionPercentage() > comp_percentage)
+				return true;
+		}
+		return false;
+	}
 
-	bool isInArray(int, const vector<int>&) {}
+	// function to check for universal quantifiers
+	bool UniversalQuantifer(const string region, int age, int comp_percentage)
+	{
+		for (int i = 0; i < users_profiles.size(); i++)
+		{
+			if (isRegionInString(users_profiles[i].getRegion(), region))
+			{
+				if (users_profiles[i].getAge() > age)
+				{
+					if (users_profiles[i].getCompletionPercentage() < comp_percentage)
+						return false;
+				}
+			}
+		}
+		return true;
+	}
 
-	bool isSurjective(const vector<pair<int, int>>) {}
+	// function to check if the proposition holds or not
+	void propositionHolder(const UsersData user1, const UsersData user2)
+	{
+		int age;
+		int comp_percentage;
+		cout << "Enter the age for the proposition: ";
+		cin >> age;
+		cout << "Enter the completion percentage for the proposition: ";
+		cin >> comp_percentage;
+		time_t now = time(nullptr);
+		tm lastYearTime;
 
-	bool isInjective(const vector<pair<int, int>>) {}
+		// Using localtime_s for thread safety and to avoid warnings
+		if (localtime_s(&lastYearTime, &now) == 0)
+		{
+			// Subtract one year
+			lastYearTime.tm_year -= 1;
+		}
+		else
+			cout << "Error: Failed to get local time" << endl;
+
+		// now we have last year stored in lastyeartime
+		cout << "-------------------- User 1 ---------------------" << endl;
+		user1.display();
+		bool above30 = user1.getAge() > age;
+		bool completion_percentage = user1.getCompletionPercentage() > comp_percentage;
+		if (!above30 || completion_percentage)
+			cout << "Implication holds" << endl;
+		else
+			cout << "Implication does not hold" << endl;
+
+		bool lastyearlogin = (user1.getLastLogin().tm_year >= lastYearTime.tm_year);
+		if (user1.getIsPublic() == lastyearlogin)
+			cout << "Biconditional holds.." << endl;
+		else
+			cout << "Biconditional does not hold" << endl;
+		cout << endl;
+
+		// now checking for user 2
+		cout << "-------------------- User 2 ---------------------" << endl;
+		user2.display();
+		above30 = user2.getAge() > age;
+		completion_percentage = user2.getCompletionPercentage() > comp_percentage;
+		if (!above30 || completion_percentage)
+			cout << "Implication holds" << endl;
+		else
+			cout << "Implication does not hold" << endl;
+		lastyearlogin = (user2.getLastLogin().tm_year >= lastYearTime.tm_year);
+		if (user2.getIsPublic() == lastyearlogin)
+			cout << "Biconditional holds.." << endl;
+		else
+			cout << "Biconditional does not hold" << endl;
+		cout << endl;
+	}
+
+	bool isInArray(int val, const vector<int>& arr)
+	{
+		return std::find(arr.begin(), arr.end(), val) != arr.end();
+	}
+
+	// function to form unoin of A and B and then store in AB
+	void Set_Union(const vector<int> setA, const vector<int> setB, vector<int>& setAB)
+	{
+		setAB = setA;
+		for (int i = 0; i < setB.size(); i++)
+		{
+			if (!isInArray(setB[i], setA))
+			{
+				setAB.push_back(setB[i]);
+			}
+		}
+	}
+
+	// function to take intersection of A, B and store in AB
+	void Set_Intersection(const vector<int> setA, const vector<int> setB, vector<int>& setAB)
+	{
+		for (int i = 0; i < setA.size(); i++)
+		{
+			if (isInArray(setA[i], setB))
+			{
+				setAB.push_back(setA[i]);
+			}
+		}
+	}
+
+	// function to take compliment of a given sent
+	void Set_complement(vector<int> set, vector<int>& complement)
+	{
+		vector<int> universal;
+		for (int i = 0; i < users_profiles.size(); i++)
+		{
+			universal.push_back(users_profiles[i].getUserId());
+		}
+
+		for (int i = 0; i < universal.size(); i++)
+		{
+			if (!isInArray(universal[i], set))
+				complement.push_back(universal[i]);
+		}
+	}
+
+	// function to check if injective property holds or not for certain conditions
+	bool isInjective(const vector<pair<int, int>> map)
+	{
+		for (int i = 0; i < map.size() - 1; i++)
+		{
+			for (int j = i + 1; j < map.size(); j++)
+			{
+				if (map[i].second == map[j].second)
+					return false;
+			}
+		}
+		return true;
+	}
+
+	// function to check if surjective property holds or not for certain conditions
+	bool isSurjective(const vector<pair<int, int>> map)
+	{
+		bool check = false;
+		for (int i = 1; i <= 100; i++)
+		{
+			check = false;
+			for (int j = 0; j < map.size(); j++)
+			{
+				if (i == map[j].second)
+				{
+					check = true;
+					break;
+				}
+			}
+			if (!check)
+				return false;
+		}
+		return true;
+	}
 
 	// function to check if the subregion is in the region
-	bool isRegionInString(const string &fullRegion, const string subRegion)
+	bool isRegionInString(const string& fullRegion, const string subRegion)
 	{
 		return fullRegion.find(subRegion) != string::npos;
 	}
 
 	// function to check if the relation is reflexive if (a,a) is in R
-	bool checkReflexive(const UsersData &user1)
+	bool checkReflexive(const UsersData& user1)
 	{
 		for (int i = 0; i < user1.getNumFriends(); i++)
 		{
@@ -763,7 +1067,7 @@ private:
 	}
 
 	// function to check if the relation is symmetric if (a,b) is in R then (b,a) should be in R
-	bool checkSymmetrix(const UsersData &user1, const UsersData &user2)
+	bool checkSymmetrix(const UsersData& user1, const UsersData& user2)
 	{
 		for (int i = 0; i < user1.getNumFriends(); i++)
 		{
@@ -788,7 +1092,7 @@ private:
 	}
 
 	// function to check if the relation is transitive if (a,b) and (b,c) is in R then (a,c) should be in R
-	bool checkTransitive(const UsersData &user1, const UsersData &user2, const UsersData &user3)
+	bool checkTransitive(const UsersData& user1, const UsersData& user2, const UsersData& user3)
 	{
 		// Check if user2 is a friend of user1
 		for (int i = 0; i < user1.getNumFriends(); i++)
@@ -881,5 +1185,97 @@ private:
 
 int main()
 {
-    return 0;
+	UsersProfiles profilesObject;
+
+	int choice;
+
+	do
+	{
+		cout << "\nMenu:\n";
+		cout << "1. Proposition\n";
+		cout << "2. Quantifies\n";
+		cout << "3. Sets\n";
+		cout << "4. Venn Diagram\n";
+		cout << "5. Functions\n";
+		cout << "6. Relations\n";
+		cout << "7. Induction\n";
+		cout << "8. Combination/Permutation\n";
+		cout << "9. Counting\n";
+		cout << "10. Relationships as Tree\n";
+		cout << "11. Bipartite Graph\n";
+		cout << "12. Minimum Spanning Tree\n";
+		cout << "0. Exit\n";
+		cout << "Enter your choice: ";
+		cin >> choice;
+		cin.ignore();
+
+		switch (choice)
+		{
+		case 1:
+			profilesObject.proposition();
+			break;
+
+		case 2:
+			profilesObject.Quantifies();
+			break;
+
+		case 3:
+			profilesObject.Sets();
+			break;
+
+		case 4:
+			profilesObject.VenDiagram();
+			break;
+
+		case 5:
+			profilesObject.functions();
+			break;
+
+		case 6:
+			profilesObject.relations();
+			break;
+
+		case 7:
+			profilesObject.induction();
+			break;
+
+		case 8:
+			int r;
+			cout << "Enter r for Combination/Permutation: ";
+			cin >> r;
+			profilesObject.combinationPermutation(r);
+			break;
+
+		case 9:
+			profilesObject.counting();
+			break;
+
+		case 10:
+			profilesObject.relationshipsAsTree();
+			break;
+
+		case 11:
+			profilesObject.BipartiteGraph();
+			break;
+
+		case 12:
+			profilesObject.MST();
+			break;
+
+		case 0:
+			cout << "Exiting program.\n";
+			break;
+
+		default:
+			cout << "Invalid choice. Try again.\n";
+			break;
+		}
+
+		system("pause");
+		system("cls");
+	} while (choice != 0);
+
+	return 0;
 }
+
+///////////////////////////////////////////// THE END /////////////////////////////////////////////
