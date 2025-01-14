@@ -46,9 +46,12 @@ The dataset files (`soc-pokec-profiles.txt` and `soc-pokec-relationships.txt`) a
 2. Compile and run the project:
    ```bash
    g++ -o main src/main.cpp
+   ```
+   and then use following command to run the executable file
+   ```bash
    ./main
    ```
-3. Follow the on-screen menu to explore different analyses.
+4. Follow the on-screen menu to explore different analyses.
 
   
 ### Tips for Handling Large Data
